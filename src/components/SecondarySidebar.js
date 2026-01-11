@@ -60,6 +60,7 @@ const SecondarySidebar = ({ activeMenu, menuData, onContextualOpen }) => {
 
     return (
       <div className="secondary-menu-item">
+        {hasSubItems ? (
           <div 
             className={`secondary-menu-button enhanced ${active ? 'active' : ''}`}
             style={{
@@ -71,35 +72,44 @@ const SecondarySidebar = ({ activeMenu, menuData, onContextualOpen }) => {
               } : {})
             }}
             onClick={(e) => {
-              if (hasSubItems) {
-                e.preventDefault();
-                toggleExpanded(item.id);
-              }
+              e.preventDefault();
+              toggleExpanded(item.id);
             }}
           >
-          <Link 
-            to={item.path} 
-            className="secondary-menu-content"
-            onClick={(e) => {
-              if (hasSubItems) {
-                e.preventDefault();
-              } else {
-                handleItemClick(item);
-              }
-            }}
-          >
-            <div className="menu-item-icon" style={{ backgroundColor: `${color}15`, color: color }}>
-              <Icon size={18} />
+            <div className="secondary-menu-content">
+              <div className="menu-item-icon" style={{ backgroundColor: `${color}15`, color: color }}>
+                <Icon size={18} />
+              </div>
+              <span className="menu-item-text">
+                {item.title}
+              </span>
             </div>
-            <span className="menu-item-text">
-              {item.title}
-            </span>
-          </Link>
-          
-          {hasSubItems && (
             <ChevronDown size={16} className={`chevron ${isExpanded ? 'expanded' : ''}`} />
-          )}
-        </div>
+          </div>
+        ) : (
+          <Link 
+            to={item.path}
+            className={`secondary-menu-button enhanced ${active ? 'active' : ''}`}
+            style={{
+              '--hover-color': color,
+              ...(active ? { 
+                backgroundColor: `${color}08`,
+                borderLeft: `4px solid ${color}`,
+                paddingLeft: '12px'
+              } : {})
+            }}
+            onClick={() => handleItemClick(item)}
+          >
+            <div className="secondary-menu-content">
+              <div className="menu-item-icon" style={{ backgroundColor: `${color}15`, color: color }}>
+                <Icon size={18} />
+              </div>
+              <span className="menu-item-text">
+                {item.title}
+              </span>
+            </div>
+          </Link>
+        )}
         
         {hasSubItems && isExpanded && (
           <div className="tertiary-menu">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Plus, Edit, Trash2, Download, FileText, File, Printer, Copy } from 'lucide-react';
 import '../styles/RoleMaster.css';
+import '../styles/components.css';
 
 const RoleMaster = () => {
   const [roleName, setRoleName] = useState('');
@@ -72,23 +73,23 @@ const RoleMaster = () => {
         {/* Table Header */}
         <div className="table-header">
           <div className="export-buttons">
-            <button className="export-btn copy">
+            <button className="export-btn-standard copy">
               <Copy size={16} />
               Copy
             </button>
-            <button className="export-btn csv">
+            <button className="export-btn-standard csv">
               <FileText size={16} />
               CSV
             </button>
-            <button className="export-btn excel">
+            <button className="export-btn-standard excel">
               <File size={16} />
               Excel
             </button>
-            <button className="export-btn pdf">
+            <button className="export-btn-standard pdf">
               <FileText size={16} />
               PDF
             </button>
-            <button className="export-btn print">
+            <button className="export-btn-standard print">
               <Printer size={16} />
               Print
             </button>
@@ -118,19 +119,25 @@ const RoleMaster = () => {
             <tbody>
               {filteredRoles.map((role) => (
                 <tr key={role.id}>
-                  <td>{role.name}</td>
+                  <td>
+                    <div className="data-item-box">
+                      <div className="data-item-content">
+                        {role.name}
+                      </div>
+                    </div>
+                  </td>
                   <td>
                     <div className="action-buttons">
                       <button 
                         onClick={() => handleEdit(role.id)}
-                        className="action-btn edit"
+                        className="action-btn-standard action-btn-edit"
                         title="Edit Role"
                       >
                         <Edit size={16} />
                       </button>
                       <button 
                         onClick={() => handleDelete(role.id)}
-                        className="action-btn delete"
+                        className="action-btn-standard action-btn-delete"
                         title="Delete Role"
                       >
                         <Trash2 size={16} />

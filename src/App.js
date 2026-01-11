@@ -54,7 +54,10 @@ function App() {
             <Route 
               key={subItem.path} 
               path={subItem.path} 
-              element={<PlaceholderPage title={subItem.title} />} 
+              element={
+                subItem.path === '/users/role' ? <RoleMaster /> : 
+                <PlaceholderPage title={subItem.title} />
+              } 
             />
           );
           
