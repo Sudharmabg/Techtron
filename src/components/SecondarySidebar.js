@@ -60,24 +60,29 @@ const SecondarySidebar = ({ activeMenu, menuData, onContextualOpen }) => {
 
     return (
       <div className="secondary-menu-item">
-        <div 
-          className={`secondary-menu-button enhanced ${active ? 'active' : ''}`}
-          style={{
-            '--hover-color': color,
-            ...(active ? { 
-              backgroundColor: `${color}08`,
-              borderLeft: `4px solid ${color}`,
-              paddingLeft: '12px'
-            } : {})
-          }}
-        >
+          <div 
+            className={`secondary-menu-button enhanced ${active ? 'active' : ''}`}
+            style={{
+              '--hover-color': color,
+              ...(active ? { 
+                backgroundColor: `${color}08`,
+                borderLeft: `4px solid ${color}`,
+                paddingLeft: '12px'
+              } : {})
+            }}
+            onClick={(e) => {
+              if (hasSubItems) {
+                e.preventDefault();
+                toggleExpanded(item.id);
+              }
+            }}
+          >
           <Link 
             to={item.path} 
             className="secondary-menu-content"
             onClick={(e) => {
               if (hasSubItems) {
                 e.preventDefault();
-                toggleExpanded(item.id);
               } else {
                 handleItemClick(item);
               }

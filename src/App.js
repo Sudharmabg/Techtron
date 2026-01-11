@@ -4,6 +4,7 @@ import MainSidebar, { moduleColors } from './components/MainSidebar';
 import SecondarySidebar from './components/SecondarySidebar';
 import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
+import RoleMaster from './pages/RoleMaster';
 import Breadcrumb from './components/Breadcrumb';
 import ContextualPanel from './components/ContextualPanel';
 import { menuData } from './data/menuData';
@@ -63,7 +64,10 @@ function App() {
                 <Route 
                   key={subSubItem.path} 
                   path={subSubItem.path} 
-                  element={<PlaceholderPage title={subSubItem.title} />} 
+                  element={
+                    subSubItem.path === '/users/role/create' ? <RoleMaster /> : 
+                    <PlaceholderPage title={subSubItem.title} />
+                  } 
                 />
               );
             });

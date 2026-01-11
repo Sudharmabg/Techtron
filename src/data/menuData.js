@@ -16,31 +16,19 @@ export const menuData = [
         id: 'role',
         title: 'Role',
         path: '/users/role',
-        subItems: [
-          { id: 'create-role', title: 'Create Role', path: '/users/role/create' },
-          { id: 'manage-roles', title: 'Manage Roles', path: '/users/role/manage' },
-          { id: 'role-permissions', title: 'Role Permissions', path: '/users/role/permissions' }
-        ]
+        subItems: []
       },
       {
         id: 'menu',
         title: 'Menu',
         path: '/users/menu',
-        subItems: [
-          { id: 'create-menu', title: 'Create Menu', path: '/users/menu/create' },
-          { id: 'manage-menus', title: 'Manage Menus', path: '/users/menu/manage' },
-          { id: 'menu-hierarchy', title: 'Menu Hierarchy', path: '/users/menu/hierarchy' }
-        ]
+        subItems: []
       },
       {
         id: 'access-rights',
         title: 'Access Rights',
         path: '/users/access-rights',
-        subItems: [
-          { id: 'assign-rights', title: 'Assign Rights', path: '/users/access-rights/assign' },
-          { id: 'user-permissions', title: 'User Permissions', path: '/users/access-rights/permissions' },
-          { id: 'access-logs', title: 'Access Logs', path: '/users/access-rights/logs' }
-        ]
+        subItems: []
       }
     ]
   },

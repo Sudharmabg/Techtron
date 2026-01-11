@@ -108,7 +108,7 @@ const Dashboard = () => {
           </div>
 
           {/* Most Used */}
-          {favorites.length > 0 && (
+          {/* {favorites.length > 0 && (
             <div className="card">
               <div className="card-header">
                 <h2 className="card-title">Most Used</h2>
@@ -124,7 +124,7 @@ const Dashboard = () => {
                 ))}
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
